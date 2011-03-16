@@ -1,0 +1,3 @@
+
+ruby script\plugin install -r 3072 http://svn.technoweenie.net/projects/plugins/restful_authentication/
+

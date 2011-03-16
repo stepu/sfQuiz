@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : quiz_data.xml
+    Created on : 22 maj 2010, 10:42
+    Author     : stepu
+    Description:
+        Purpose of the document follows.
+-->
+
+<quiz>
+  <title>The Quiz</title>
+    <items><item><question>Na jakim kontynecie zlokalizowana jest Japonia?</question><answers><answer correct="y">Azja</answer><answer>Europa</answer><answer>Afryka</answer><answer>Ameryka</answer></answers></item>
+
+      <item>
+        <question>Co nie potrafi pływać?</question>
+<answers>
+        <answer>Tunczyk</answer>
+        <answer correct="y">Krowa</answer>
+        <answer>Delfin</answer>
+        <answer>Orka</answer>
+</answers>
+      </item>		
+    </items>
+</quiz>

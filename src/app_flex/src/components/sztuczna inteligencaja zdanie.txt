@@ -1,0 +1,13 @@
+Generujemy 10 liczb losowych naturalnych 0-255
+konwertujemy na liczbe binarna - elementy
+elgorytm ewolucyjny
+
+funkcjia przezycia
+
+metoda meczowa eliminacji (uk³adamy w pary) wybieramy 10 par i wykonujemy mecz, wykrywa ten którego funkcjia prze¿ycia jest najwieksza.
+
+
+
+mutacja z prawdopodoienstwem 0.025
+
+10 pokolen zmian

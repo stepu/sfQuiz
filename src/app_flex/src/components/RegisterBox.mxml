@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:view="view.*"
+	xmlns:comp="components.*"
+	
+	label="Rejestracja">
+	
+	<fx:Metadata>
+		[Event(name="accountCreate", type="events.AccountCreateEvent")]
+	</fx:Metadata>
+	
+	
+	
+	<fx:Script>
+		<![CDATA[
+		import mx.controls.Alert;
+		import mx.rpc.events.ResultEvent;
+		import events.AccountCreateEvent;
+		
+		private function createAccount():void {
+			//Alert.show("KURDWA")
+			svcAccountCreate.send();
+		}
+		
+		private function handleAccountCreateResult(event:ResultEvent):void {
+			var result:Object = event.result;
+			if (result == "error") {
+				Alert.show("Twoje konto nie zostało utworzone.", "Error");
+			} else {
+				dispatchEvent (new AccountCreateEvent(XML(result)));
+			}
+			loginAccordion.selectedChild = 1;
+			
+		}
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<mx:HTTPService id="svcAccountCreate"
+			url="/users/create_xml"
+			contentType="application/xml"
+			resultFormat="e4x"
+			method="POST"
+			result="handleAccountCreateResult(event)">
+				<mx:request>
+					<user>
+						<login>{loginTI.text}</login>
+						<email>{emailTI.text}</email>
+						<first_name>{firstNameTI.text}</first_name>
+						<last_name>{lastNameTI.text}</last_name>
+						<password>{passwordTI.text}</password>
+						<password_confirmation>{confirmPasswordTI.text}</password_confirmation>
+					</user>
+				</mx:request>
+		
+		
+		</mx:HTTPService>
+	</fx:Declarations>
+	
+	
+	
+	
+	<mx:Form labelWidth="150">
+		<mx:FormItem required="true" label="Nazwa użytkownika">
+			<mx:TextInput id="loginTI" />
+		</mx:FormItem>
+		<mx:FormItem required="true" label="Email">
+			<mx:TextInput id="emailTI" />
+		</mx:FormItem>
+		<mx:FormItem required="true" label="Imię">
+			<mx:TextInput id="firstNameTI" />
+		</mx:FormItem>
+		<mx:FormItem required="true" label="Nazwisko">
+			<mx:TextInput id="lastNameTI" />
+		</mx:FormItem>
+		<mx:FormItem required="true" label="Hasło">
+			<mx:TextInput id="passwordTI" displayAsPassword="true" />
+		</mx:FormItem>
+		<mx:FormItem required="true" label="Powtórz Hasło">
+			<mx:TextInput id="confirmPasswordTI" displayAsPassword="true" />
+		</mx:FormItem>
+		<mx:FormItem>
+			<mx:Button id="registerButton" 
+				label="Rejestruj" 
+				click="createAccount()" />
+		</mx:FormItem>
+
+	</mx:Form>
+	
+</mx:VBox>

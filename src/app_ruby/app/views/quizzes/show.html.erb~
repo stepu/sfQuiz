@@ -1,0 +1,57 @@
+<p>
+  <b>Title:</b>
+  <%=h @quiz.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @quiz.description %>
+</p>
+
+<p>
+  <b>QXML:</b>
+  <%=h @quiz.qxml %>
+</p>
+
+
+
+<form action="stop" method="POST">
+ 
+
+
+
+  <%
+  require 'nokogiri'
+
+  doc = Nokogiri::XML.parse @quiz.qxml
+  doc.xpath("//quiz/items/item").each do |ii|
+    i = Nokogiri::XML.parse(ii.to_s)
+    %>
+<p>
+
+  <%= i.xpath("//question").collect(&:text) %>
+
+
+  <%
+    #puts i.to_s + "A"
+       puts "-----------------"
+    puts i.xpath("//question")
+
+    #puts i.xpath("//answers")
+      i.xpath("//answers/answer").collect(&:text).each do |a|
+        %>
+<%= radio_button_tag(i.xpath("//question").collect(&:text), a) %>
+  <%= label_tag(:age_child, a) %>
+       
+  <%
+      end
+      %></p><%
+    end
+   %>
+
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>" />
+
+<input name="commit" type="submit" value="stop" />
+</form>
+<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
+<%= link_to 'Back', quizzes_path %>

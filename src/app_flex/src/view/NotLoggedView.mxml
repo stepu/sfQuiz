@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox       xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:view="view.*"
+			   xmlns:comp="components.*"
+			   >
+			   
+	
+	<mx:Accordion width="400" height="300" name="loginAccordion"
+	>
+		
+		<s:NavigatorContent label="Login">
+			<comp:LoginBox/>
+		</s:NavigatorContent>
+		
+		<s:NavigatorContent label="Register">
+			<comp:RegisterBox/>
+		</s:NavigatorContent>
+	
+	</mx:Accordion>
+
+
+</mx:VBox>
