@@ -20,7 +20,6 @@
     import events.LoginEvent;
 	
     private function login():void {
-		Alert.show("KURDWA")
         svcAccountLogin.send(
             {login: loginTI.text, password: passwordTI.text});
     }
