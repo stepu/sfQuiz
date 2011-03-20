@@ -6,6 +6,44 @@
 	xmlns:comp="components.*"
 	
 	label="Logovanie">
+	<fx:Metadata>
+		[Event(name="login", type="events.LoginEvent")]
+	</fx:Metadata>
+	
+	
+	
+	<fx:Script>
+	<![CDATA[
+	
+	import mx.controls.Alert;
+    import mx.rpc.events.ResultEvent;
+    import events.LoginEvent;
+	
+    private function login():void {
+		Alert.show("KURDWA")
+        svcAccountLogin.send(
+            {login: loginTI.text, password: passwordTI.text});
+    }
+	
+    private function handleAccountLoginResult(event:ResultEvent):void {
+        var result:Object = event.result;
+        if (result == "badlogin") {
+            Alert.show("The username or password is wrong.", "Login Error");
+       } else {
+           dispatchEvent(new LoginEvent(XML(result)))
+       }
+   }
+	]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<mx:HTTPService
+       id="svcAccountLogin"
+       url="/sessions/create_xml"
+       resultFormat="e4x"
+       method="POST"
+       result="handleAccountLoginResult(event)"/>
+	</fx:Declarations>
 	
 	<mx:Form labelWidth="150">
 		<mx:FormItem required="true" label="Nazwa użytkownika">
@@ -14,8 +52,8 @@
 		<mx:FormItem required="true" label="Hasło">
 			<mx:TextInput id="passwordTI" displayAsPassword="true" />
 		</mx:FormItem>
-		<mx:FormItem required="true" label="Powtórz hasło">
-			<mx:Button id="loginButton" label="Zaloguj" />
+		<mx:FormItem required="false">
+			<mx:Button id="loginButton" label="Zaloguj" click="login()" />
 		</mx:FormItem>
 
 	</mx:Form>

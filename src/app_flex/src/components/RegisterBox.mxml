@@ -31,7 +31,7 @@
 			} else {
 				dispatchEvent (new AccountCreateEvent(XML(result)));
 			}
-			loginAccordion.selectedChild = 1;
+//			loginAccordion.selectedChild = 1;
 			
 		}
 		]]>

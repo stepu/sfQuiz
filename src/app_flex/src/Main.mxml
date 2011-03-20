@@ -3,7 +3,7 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
-			   id="appflex"
+			   
 			   >
 	
 	<fx:Declarations>
