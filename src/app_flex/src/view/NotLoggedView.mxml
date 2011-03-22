@@ -6,7 +6,18 @@
 			   xmlns:comp="components.*"
 			   >
 			   
+	<fx:Metadata>
+		[Event(name="accountCreate", type="events.AccountCreateEvent")]
+		[Event(name="login", type="events.LoginEvent")]
+	</fx:Metadata>
 	
+	<fx:Script>
+		<![CDATA[
+		import events.AccountCreateEvent;
+		import events.LoginEvent;
+		
+		]]>
+	</fx:Script>
 	<mx:Accordion width="400" height="300" name="loginAccordion"
 	>
 		

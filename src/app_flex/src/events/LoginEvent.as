@@ -5,7 +5,7 @@ package events {
         public static const LOGIN:String = "login"
         public var user:XML;
         public function LoginEvent(user:XML) {
-            super(LOGIN);
+            super(LOGIN,true);
             this.user = user;
         }
     }

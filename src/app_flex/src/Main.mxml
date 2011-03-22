@@ -3,52 +3,55 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
-			   xmlns:comp="components.*"
-			   
 			   
 			   >
-	<fx:Script>
-		<![CDATA[
-		import events.AccountCreateEvent;
-		import events.LoginEvent;
-		
-		private function handleAccountCreate(e:AccountCreateEvent):void{
-				mainStack.selectedChild = NotLoggedView;
+	
+			<fx:Script>
+				<![CDATA[
+				    import events.AccountCreateEvent;
+					import events.LoginEvent;
+					import mx.controls.Alert;
+					
+					[Bindable]
+					private var _user : XML;
+					
+		private function handleAccountCreate(e:AccountCreateEvent):void {
+	
+			login(e.user);
 		}
 		
 		private function handleLogin(e:LoginEvent):void {
-			showMain();
+			
+			login(e.user);
 		}
+        
 		
-		private function showMain():void {
-			mainStack.selectedChild = LoggedView;
-		}
-		
-		]]>
-	</fx:Script>
+			
+				
+				private function login(user:XML):void {
+					Alert.show("ssss")
+					_user = user;
+					mainStack.selectedChild = loggedView;
+				}
+				   ]]>
+			   </fx:Script>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:layout>
         <s:HorizontalLayout verticalAlign="middle" horizontalAlign="center" />
     </s:layout>
-	<mx:ViewStack id="mainStack" width="100%" height="100%">
-		<mx:VBox id="NotLoggedView">		
-			<mx:Accordion width="400" height="300" name="loginAccordion">
+<!--	
+	<view:NotLoggedView />
+	-->
+
+    <mx:ViewStack id="mainStack" width="100%" height="100%">
+        <view:NotLoggedView id="notLogedView"
+            accountCreate="handleAccountCreate(event)"
+            login="handleLogin(event)"/>
+			
+        <view:LoggedView id="loggedView" user="{_user}" />
+    </mx:ViewStack>
+
 		
-				<s:NavigatorContent label="Login">
-					<comp:LoginBox login="handleLogin(event)"/>
-				</s:NavigatorContent>
-		
-				<s:NavigatorContent label="Register">
-					<comp:RegisterBox accountCreate="handleAccountCreate(event)"/>
-				</s:NavigatorContent>
-	
-			</mx:Accordion>
-		</mx:VBox>
-		
-		<view:LoggedView id="LoggedView" />
-		
-	</mx:ViewStack>
-	
 </s:Application>

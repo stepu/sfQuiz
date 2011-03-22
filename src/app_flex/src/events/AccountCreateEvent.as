@@ -11,7 +11,7 @@ package events
 		
 		
 		public function AccountCreateEvent(user:XML) {
-			super(ACCOUNT_CREATE);
+			super(ACCOUNT_CREATE,true);
 			this.user = user;
 			
 		}

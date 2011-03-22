@@ -4,17 +4,38 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
 			   xmlns:comp="components.*"
+			     minWidth="1000"
+    minHeight="680"
+    paddingLeft="5"
+    paddingRight="5"
+    paddingTop="5"
+    paddingBottom="5"
+    width="100%"
+    height="100%"
+	 backgroundColor="#FFFFFF"
 			   >
 			   
 	
-	<mx:Accordion width="400" height="300" name="loginAccordion">
-		<mx:VBox>
+	
+	<fx:Script>
+		<![CDATA[
+		    [Bindable]
+    public var user : XML;
 		
-			<s:Label>AAAAAAAAAAAAAA Sie zalogowałem</s:Label>
-			<s:Label>TODO: EKRAN ZALOGOWANY</s:Label>
-		</mx:VBox>
+		]]>
+	</fx:Script>
+ <mx:HBox width="100%" height="100%">
+	 
+        <mx:VBox width="300" height="100%">
+            <mx:Image source="com/pomodo/assets/logo_md.png"/>
+            <mx:Label text="{'Logged in as:  '+ user.login + ' (' + user.email + ')'}"/>
+            <mx:Label text="{'Welcome back ' + user.first_name +'!'}"/>
+            <mx:Accordion width="100%" height="350">
+                <view:QuizListBox id="quizListBox"/>
+			</mx:Accordion>
 			
-	</mx:Accordion>
-
-
+            <mx:DateChooser id="dateChooser" width="100%"/>
+        </mx:VBox>
+ 		
+    </mx:HBox>
 </mx:VBox>
