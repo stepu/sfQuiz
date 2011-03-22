@@ -4,59 +4,55 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
 			   xmlns:comp="components.*"
-			   
 			   >
 	
-			<fx:Script>
-				<![CDATA[
-				    import events.AccountCreateEvent;
-					import events.LoginEvent;
-					import mx.controls.Alert;
-					 import components.DebugPanel;
-    
-					import util.DebugMessage;
+	<fx:Script>
+		<![CDATA[
+			import events.AccountCreateEvent;
+			import events.LoginEvent;
+			import mx.controls.Alert;
+			
+			import components.DebugPanel;
+			import util.DebugMessage;
 					
 					
-					[Bindable]
-					private var _user : XML;
+			[Bindable]
+			private var _user : XML;
 					
 					
-					 public function debug(str:String):void {
-						 //application.debugPanel.addMessage(new DebugMessage(str));
-						 debugPanel.addMessage(new DebugMessage(str));						
-    }
+			public function debug(str:String):void {
+				debugPanel.addMessage(new DebugMessage(str));						
+			}
 
 					
-		private function handleAccountCreate(e:AccountCreateEvent):void {
-	
-			login(e.user);
-		}
+			private function handleAccountCreate(e:AccountCreateEvent):void {
+				login(e.user);
+			}
 		
-		private function handleLogin(e:LoginEvent):void {
-			
-			login(e.user);
-		}
+			private function handleLogin(e:LoginEvent):void {
+				login(e.user);
+			}
         
 		
 			
 				
-				private function login(user:XML):void {
-					 debug("user = " + user);
-					_user = user;
-					mainStack.selectedChild = loggedView;
-				}
-				   ]]>
-			   </fx:Script>
+			private function login(user:XML):void {
+				debug("user = " + user);
+				_user = user;
+				mainStack.selectedChild = loggedView;
+			}
+		]]>
+	</fx:Script>
+	
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	
 	<s:layout>
         <s:HorizontalLayout verticalAlign="middle" horizontalAlign="center" />
     </s:layout>
-<!--	
-	<view:NotLoggedView />
-	-->
- <mx:VDividedBox width="100%" height="100%">
+
+	<mx:VDividedBox width="100%" height="100%">
 		<mx:ViewStack id="mainStack" width="100%" height="100%">
 			<view:NotLoggedView id="notLogedView"
 				accountCreate="handleAccountCreate(event)"
@@ -64,7 +60,7 @@
 			<view:LoggedView id="loggedView" user="{_user}" />
 		</mx:ViewStack>    
         <comp:DebugPanel id="debugPanel" width="100%"
-            height="10%"/>
+            height="1%"/>
     </mx:VDividedBox>
 		
 </s:Application>

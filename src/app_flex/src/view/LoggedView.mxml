@@ -19,13 +19,14 @@
 	
 	<fx:Script>
 		<![CDATA[
+		
 		    [Bindable]
-    public var user : XML;
+			public var user : XML;
 		
 		]]>
 	</fx:Script>
- <mx:HBox width="100%" height="100%">
-	 
+	
+	<mx:HBox width="100%" height="100%">
         <mx:VBox width="300" height="100%">
             <mx:Image source="com/pomodo/assets/logo_md.png"/>
             <mx:Label text="{'Logged in as:  '+ user.login + ' (' + user.email + ')'}"/>
