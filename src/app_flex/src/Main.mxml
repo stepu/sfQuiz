@@ -3,6 +3,7 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
+			   xmlns:comp="components.*"
 			   
 			   >
 	
@@ -11,9 +12,20 @@
 				    import events.AccountCreateEvent;
 					import events.LoginEvent;
 					import mx.controls.Alert;
+					 import components.DebugPanel;
+    
+					import util.DebugMessage;
+					
 					
 					[Bindable]
 					private var _user : XML;
+					
+					
+					 public function debug(str:String):void {
+						 //application.debugPanel.addMessage(new DebugMessage(str));
+						 debugPanel.addMessage(new DebugMessage(str));						
+    }
+
 					
 		private function handleAccountCreate(e:AccountCreateEvent):void {
 	
@@ -29,7 +41,7 @@
 			
 				
 				private function login(user:XML):void {
-					Alert.show("ssss")
+					 debug("user = " + user);
 					_user = user;
 					mainStack.selectedChild = loggedView;
 				}
@@ -44,14 +56,15 @@
 <!--	
 	<view:NotLoggedView />
 	-->
-
-    <mx:ViewStack id="mainStack" width="100%" height="100%">
-        <view:NotLoggedView id="notLogedView"
-            accountCreate="handleAccountCreate(event)"
-            login="handleLogin(event)"/>
-			
-        <view:LoggedView id="loggedView" user="{_user}" />
-    </mx:ViewStack>
-
+ <mx:VDividedBox width="100%" height="100%">
+		<mx:ViewStack id="mainStack" width="100%" height="100%">
+			<view:NotLoggedView id="notLogedView"
+				accountCreate="handleAccountCreate(event)"
+				login="handleLogin(event)"/>
+			<view:LoggedView id="loggedView" user="{_user}" />
+		</mx:ViewStack>    
+        <comp:DebugPanel id="debugPanel" width="100%"
+            height="10%"/>
+    </mx:VDividedBox>
 		
 </s:Application>
