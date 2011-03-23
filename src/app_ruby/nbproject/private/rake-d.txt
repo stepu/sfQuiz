@@ -43,6 +43,7 @@ doc\:clobber_rails=Remove rdoc products
 doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
 doc\:plugins\:restful-authentication=Generate documentation for the restful-authentication plugin
+doc\:plugins\:restful-authentication.rar=Generate documentation for the restful-authentication.rar plugin
 doc\:rails=Build the RDOC HTML Files
 doc\:reapp=Force a rebuild of the RDOC files
 doc\:rerails=Force a rebuild of the RDOC files

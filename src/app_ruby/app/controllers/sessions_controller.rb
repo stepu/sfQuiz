@@ -2,61 +2,69 @@
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
 #  include AuthenticatedSystem
-protect_from_forgery :only => [:update, :delete, :create]
+#protect_from_forgery :only => [:update, :delete, :create]
+
+  # GET /session/new
+  # GET /session/new.xml
   # render new.rhtml
   def new
   end
 # Once we explain REST in the book this will obviously be
 # refactored.
-def create_xml
-  self.current_user =
-    User.authenticate(params[:login], params[:password])
-  if logged_in?
-    if params[:remember_me] == "1"
-      self.current_user.remember_me
-      cookies[:auth_token] = {
-        :value => self.current_user.remember_token,
-        :expires => self.current_user.remember_token_expires_at
-      }
-    end
+#def create_xml
+#  self.current_user =
+#    User.authenticate(params[:login], params[:password])
+#  if logged_in?
+#    if params[:remember_me] == "1"
+#      self.current_user.remember_me
+#      cookies[:auth_token] = {
+#        :value => self.current_user.remember_token,
+#        :expires => self.current_user.remember_token_expires_at
+#      }
+#    end
                                             
-    render :xml => self.current_user.to_xml
-  else
-    render :text => "badlogin"
-  end
-end
+#    render :xml => self.current_user.to_xml
+#  else
+#    render :text => "badlogin"
+#  end
+#end
 
+  # POST /session
+  # POST /session.xml
   def create
-    logout_keeping_session!
-    user = User.authenticate(params[:login], params[:password])
-    if user
-      # Protects against session fixation attacks, causes request forgery
-      # protection if user resubmits an earlier form using back
-      # button. Uncomment if you understand the tradeoffs.
-      # reset_session
-      self.current_user = user
-      new_cookie_flag = (params[:remember_me] == "1")
-      handle_remember_cookie! new_cookie_flag
-      redirect_back_or_default('/quizzes')
-      flash[:notice] = "Logged in successfully"
+    self.current_user =
+      User.authenticate(params[:login], params[:password])
+    if logged_in?
+      if params[:remember_me] == "1"
+        self.current_user.remember_me
+        cookies[:auth_token] = {
+          :value => self.current_user.remember_token ,
+          :expires =>
+            self.current_user.remember_token_expires_at }
+      end
+      respond_to do |format|
+        format.html do
+          redirect_back_or_default('/')
+          flash[:notice] = "Logged in successfully"
+        end
+        format.xml  { render :xml => self.current_user.to_xml }
+      end
     else
-      note_failed_signin
-      @login       = params[:login]
-      @remember_me = params[:remember_me]
-      render :action => 'new'
+      respond_to do |format|
+        format.html { render :action => 'new' }
+        format.xml { render :text => "badlogin" }
+      end
     end
   end
 
-  def destroy
-    logout_killing_session!
+  # DELETE /session
+  # DELETE /session.xml
+    def destroy
+    self.current_user.forget_me if logged_in?
+    cookies.delete :auth_token
+    reset_session
     flash[:notice] = "You have been logged out."
     redirect_back_or_default('/')
   end
-
-protected
-  # Track failed login attempts
-  def note_failed_signin
-    flash[:error] = "Couldn't log you in as '#{params[:login]}'"
-    logger.warn "Failed login for '#{params[:login]}' from #{request.remote_ip} at #{Time.now.utc}"
-  end
 end
+

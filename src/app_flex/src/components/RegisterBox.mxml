@@ -39,7 +39,7 @@
 	
 	<fx:Declarations>
 		<mx:HTTPService id="svcAccountCreate"
-			url="/users/create_xml"
+			url="/users.xml"
 			contentType="application/xml"
 			resultFormat="e4x"
 			method="POST"

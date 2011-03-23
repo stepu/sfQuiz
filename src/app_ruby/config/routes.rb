@@ -1,13 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.resources :categories
+
   map.resources :quizzes
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
 
+  map.resources :users
   map.resource :session
+  
   map.quizzes '/quizzes', :controller => 'quizzes', :action => 'stop'
 
 # For a collection of items
@@ -20,7 +24,8 @@ ActionController::Routing::Routes.draw do |map|
 map.signup '/signup', :controller => 'users', :action => 'new'
 map.login '/login', :controller => 'sessions', :action => 'new'
 map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-
+#domyslny controler
+  #map.root :controller => "categiries"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

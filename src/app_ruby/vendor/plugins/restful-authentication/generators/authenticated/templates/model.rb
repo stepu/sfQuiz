@@ -45,6 +45,10 @@ class <%= class_name %> < ActiveRecord::Base
   def active?
     # the existence of an activation code means they have not activated yet
     activation_code.nil?
+  end
+  
+  def recently_activated?
+    @activated
   end<% end %>
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
@@ -69,15 +73,13 @@ class <%= class_name %> < ActiveRecord::Base
     write_attribute :email, (value ? value.downcase : nil)
   end
 
+  <% if options[:include_activation] -%>
   protected
-    
-<% if options[:include_activation] -%>
-    def make_activation_code
-  <% if options[:stateful] -%>
-      self.deleted_at = nil
-  <% end -%>
-      self.activation_code = self.class.make_token
-    end
-<% end %>
-
+      def make_activation_code
+    <% if options[:stateful] -%>
+        self.deleted_at = nil
+    <% end -%>
+        self.activation_code = self.class.make_token
+      end
+  <% end %>
 end

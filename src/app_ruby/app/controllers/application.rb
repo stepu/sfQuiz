@@ -55,6 +55,23 @@ class ApplicationController < ActionController::Base
   # store
   # TODO - this will be uncommented once we explain sessions
   # in iteration 5.
-  # protect_from_forgery
-  # :secret => 'dd92c128b5358a710545b5e755694d57'
+   #protect_from_forgery :secret => 'dd92c128b5358a710545b5e755694d57'
+
+  after_filter :flex_error_handling
+
+  def flex_error_handling
+    response.headers['Status'] = interpret_status(200) if response.headers['Status'] == interpret_status(422)
+  end
+
+  def rescue_action_in_public(exception)
+    render_exception(exception)
+  end
+  def rescue_action_locally(exception)
+    render_exception(exception)
+  end
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_exception
+  def render_exception(exception)
+    render :text => "<errors><error>#{exception}</error></errors>", :status => 200
+  end
 end

@@ -38,7 +38,7 @@
 	<fx:Declarations>
 		<mx:HTTPService
        id="svcAccountLogin"
-       url="/sessions/create_xml"
+       url="/session.xml"
        resultFormat="e4x"
        method="POST"
        result="handleAccountLoginResult(event)"/>
