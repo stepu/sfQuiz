@@ -4,6 +4,11 @@
 			   xmlns:mx="library://ns.adobe.com/flex/mx"
 			   xmlns:view="view.*"
 			   xmlns:comp="components.*"
+			   
+	width="100%" height="100%"
+
+	skinClass="skins.ApplicationContainerSkin" pageTitle="Quizy" backgroundColor="#000000"
+	
 			   >
 	
 	<fx:Script>
@@ -49,16 +54,25 @@
 	</fx:Declarations>
 	
 	<s:layout>
+		<!--
         <s:HorizontalLayout verticalAlign="middle" horizontalAlign="center" />
+		-->
+			<s:VerticalLayout/> 
+		
     </s:layout>
-
+	
+	<fx:Style source="Styl.css"/>
+	
+	
+		
 	<mx:VDividedBox width="100%" height="100%">
 		<mx:ViewStack id="mainStack" width="100%" height="100%">
 			<view:NotLoggedView id="notLogedView"
 				accountCreate="handleAccountCreate(event)"
 				login="handleLogin(event)"/>
 			<view:LoggedView id="loggedView" user="{_user}" />
-		</mx:ViewStack>    
+		</mx:ViewStack>
+		
         <comp:DebugPanel id="debugPanel" width="100%"
             height="1%"/>
     </mx:VDividedBox>

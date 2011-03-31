@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
+		  xmlns:s="library://ns.adobe.com/flex/spark"
+		  xmlns:mx="library://ns.adobe.com/flex/mx"
+		  horizontalAlign="center" 
+		  paddingLeft="15" paddingRight="15" paddingTop="17"     
+		  gap="10">
+	<fx:Script>
+		<![CDATA[
+			import skins.ButtonWithStatesSkin;
+		]]>
+	</fx:Script>
+    
+    <!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->		
+		
+	</fx:Declarations>
+    
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+		
+		<s:Label id="imieTworcy0"
+			text="Michał Stepczuk" textAlign="center" fontSize="15" fontWeight="bold" color="#FF0202"/>
+		<s:Label id="imieTworcy"
+			text="Zbigniew Frajnt" textAlign="center" fontSize="15" fontWeight="bold"/>
+		
+	<s:Scroller height="57" width="240">
+		<s:RichEditableText text="Witam serdecznie na moim portalu do rozwiazywania quizow, projekt powstał dzięki mojej uczelni Colegium Mazovia. Mozna znależć tutaj wiele trudnych pytań w roznych kategoriach i poziomach trudnosci. Milego rozwiazywania." fontSize="15"/>
+	</s:Scroller>
+	<s:Label text="Wyślij nam wiadomość:" fontWeight="bold" fontSize="15"/>
+	<s:TextInput width="242" height="80" 
+				 textAlign="left" x="19"/>
+		
+		<s:Button label="Wyślij"
+				  skinClass="skins.ButtonWithStatesSkin"/>
+
+	
+</s:VGroup>

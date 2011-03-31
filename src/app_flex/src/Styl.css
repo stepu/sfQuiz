@@ -1,0 +1,53 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+@namespace cx "components.*";
+
+global
+{
+	fontFamily: Verdana;
+	fontSize: 17;
+	focus-color: #70B2EE;
+}
+
+s|Panel
+{
+	skinClass: ClassReference("skins.PanelSkin");
+}
+
+s|Button
+{
+	color: #7f2a00;
+
+}
+s|Button
+{
+	font-family: Arial;
+	
+}
+s|Panel s|Button:down 
+{
+	color: #000000;
+	chromeColor: #66ccdd;
+}
+s|Panel s|Scroller s|Button 
+{
+	chromeColor: #555555;
+}
+s|Button:up
+{
+	color: #FFFFFF;
+	chromeColor: #555555;
+}
+s|Button:over
+{
+	color: #000000;
+	chromeColor: #555555;
+}
+#imieTworcy 
+{
+	color: #FF0000;
+}
+
+
+

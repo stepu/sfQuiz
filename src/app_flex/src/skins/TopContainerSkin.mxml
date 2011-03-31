@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:mx="library://ns.adobe.com/flex/mx" 
+    xmlns:s="library://ns.adobe.com/flex/spark">
+
+    <!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <s:states>
+        
+        <s:State name="normal" />
+        <s:State name="disabled" />
+        
+    </s:states>
+    
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <fx:Metadata>
+        
+        [HostComponent("spark.components.SkinnableContainer")]
+        
+    </fx:Metadata> 
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->		
+		
+	</fx:Declarations>
+    
+    
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!--<s:Rect radiusX="4" radiusY="4"
+	height="100%" width="100%">
+	
+	<s:fill>
+	<mx:SolidColor id="topContainerSkin" 
+	color="#0D86B8"/>
+	</s:fill>
+	
+	</s:Rect>-->
+	
+	<s:Path winding="nonZero"
+			data="M0 0L0 81.2002 933.425 81.3457 933.587 13.2305C933.587 6.60303 928.214 1.23047 921.587 1.23047L774.585 1.23047 0 0Z">
+		
+        <s:fill>
+			<s:SolidColor color="#0684b7"/>
+		</s:fill>
+    
+	</s:Path>
+
+
+	<s:Group id="contentGroup"
+        verticalCenter="0" 
+        left="20">
+		
+		<s:layout>            
+			<s:HorizontalLayout/>        
+		</s:layout>
+		
+	</s:Group>        
+	
+</s:Skin>

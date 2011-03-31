@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark" 
+    xmlns:mx="library://ns.adobe.com/flex/mx" height="439" width="287"
+	 creationComplete="listCategories()"
+	>
+    
+    <!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<s:layout>		
+		<s:VerticalLayout  paddingLeft="15" paddingRight="15" paddingTop="17" gap="10"/>	
+	</s:layout>
+	
+     
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <fx:Script>
+		<![CDATA[
+		import mx.rpc.events.ResultEvent;
+		
+		    public function listCategories():void {
+				svcCategoriesList.send();
+			}
+			
+			private function handleCategoriesListResult(event:ResultEvent): void {
+				var resultXML: XML = XML(event.result);
+			//debug("CategoriesListBox#handleTasksListResult:\n" +
+				//	resultXML.toString());
+			}
+
+		]]>
+	</fx:Script>
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+	<fx:Declarations>
+		<mx:HTTPService id="svcCategoriesList" url="/categories.xml"
+        resultFormat="e4x"
+		method="GET"
+		
+		
+        result="handleCategoriesListResult(event)">
+		<!--
+		contentType="application/xml"
+		<mx:request>
+					<root></root>
+				</mx:request>
+				-->
+				</mx:HTTPService>
+    <mx:XMLListCollection id="categoriesXLC"
+        source="{XMLList(svcCategoriesList.lastResult.children())}"/>
+		
+	</fx:Declarations>
+	
+	<s:Label x="96" y="124" text="Wybierz kategorie:" fontWeight="bold"/>
+	
+	<s:Button x="96" y="388" label="Dodaj"
+			  skinClass="skins.ButtonWithStatesSkin"/>
+    
+			  
+	<mx:DataGrid id="tasksGrid"  dataProvider="{categoriesXLC}">
+            <mx:columns>
+             
+                <mx:DataGridColumn headerText="Name" dataField="name"/>
+				<mx:DataGridColumn headerText="Description" dataField="description"/>
+                
+					</mx:columns>
+			</mx:DataGrid>
+			
+				
+			
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+   
+
+</s:Group>

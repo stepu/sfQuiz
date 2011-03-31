@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:s="library://ns.adobe.com/flex/spark" 
+    xmlns:mx="library://ns.adobe.com/flex/mx" height="439" width="287">
+    
+    <!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+	<s:layout>		
+		<s:VerticalLayout  paddingLeft="15" paddingRight="15" paddingTop="17" gap="10"/>	
+	</s:layout>
+	
+     
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+	<fx:Declarations>
+	</fx:Declarations>
+	
+	<s:Label x="96" y="6" text="Dodaj Quiz:" fontWeight="bold" verticalAlign="justify"/>
+	<s:RadioButton x="96" y="31" label="Wariant 1" groupName=""/>
+	<s:RadioButton x="96" y="62" label="Wariant 2" groupName=""/>
+	<s:RadioButton x="96" y="93" label="Wariant 3" groupName=""/>
+	<s:Label x="96" y="124" text="Wybierz kategorie:" fontWeight="bold"/>
+	<s:DropDownList x="96" y="149" width="171">
+		<s:dataProvider>
+			<s:ArrayList source="[ ,Matematyka, Fizyka, Chemia, Geografia, Biologia, Kultura, Film]" />
+		</s:dataProvider>
+	</s:DropDownList>
+	<s:Label x="96" y="178" text="Wybierz trudność:" fontWeight="bold"/>
+	<s:DropDownList x="96" y="203" width="171">
+		<s:dataProvider>
+			<s:ArrayList source="[ ,Łatwy, Średni, Trudny]" />
+		</s:dataProvider>
+	</s:DropDownList>
+	<s:TextInput x="29" y="251" height="107" width="227"/>
+	<s:Button x="96" y="388" label="Dodaj"
+			  skinClass="skins.ButtonWithStatesSkin"/>
+    
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+   
+
+</s:Group>

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  skip_before_filter :login_required
   # GET /categories
   # GET /categories.xml
   def index
@@ -19,6 +20,8 @@ class CategoriesController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @category }
     end
+    rescue ActiveRecord::RecordNotFound => e
+      prevent_access(e)
   end
 
   # GET /categories/new
@@ -35,6 +38,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      prevent_access(e)
   end
 
   # POST /categories
@@ -67,6 +72,8 @@ class CategoriesController < ApplicationController
         format.xml  { render :xml => @category.errors, :status => :unprocessable_entity }
       end
     end
+    rescue ActiveRecord::RecordNotFound => e
+      prevent_access(e)
   end
 
   # DELETE /categories/1
@@ -79,5 +86,17 @@ class CategoriesController < ApplicationController
       format.html { redirect_to(categories_url) }
       format.xml  { head :ok }
     end
+    rescue ActiveRecord::RecordNotFound => e
+      prevent_access(e)
   end
+    private
+    def prevent_access(e)
+      logger.info "TasksController#prevent_access: #{e}"
+      respond_to do |format|
+        format.html { redirect_to(tasks_url) }
+        format.xml  { render :text => "error" }
+      end
+    end
+
+
 end

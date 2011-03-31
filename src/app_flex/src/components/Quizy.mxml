@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:s="library://ns.adobe.com/flex/spark" 
+    xmlns:mx="library://ns.adobe.com/flex/mx"
+	horizontalAlign="left" 
+	paddingLeft="15" paddingRight="15"  paddingTop="17"
+	gap="10" width="287" height="439">
+    
+ 
+    
+    
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+	<fx:Declarations>
+			
+	</fx:Declarations>
+	<s:Label text="Wybierz Quiz:&#xd;" verticalAlign="justify" fontWeight="bold"/>
+	<s:RadioButton label="Wariant 1" groupName="Wariant 2"/>
+	<s:RadioButton label="Wariant2" groupName="Wariant 2"/>
+	<s:RadioButton label="Wariant 3" groupName="Wariant 2"/>
+	<s:Label text="Wybierz kategorie:" fontWeight="bold"/>
+	<s:DropDownList id="ddl1"
+					requireSelection="true"
+					horizontalCenter="-49" top="20" width="160" enabled="true">
+		<s:dataProvider>
+			<s:ArrayList source="[ ,Matematyka, Fizyka, Chemia, Geografia, Biologia, Kultura, Film]" />
+		</s:dataProvider>
+	</s:DropDownList>
+	<s:Label text="Wybierz trudność:" fontWeight="bold"/>
+	<s:DropDownList id="ddl2"
+					requireSelection="true"
+					horizontalCenter="-49" top="20" width="160">
+		<s:dataProvider>
+			<s:ArrayList source="[ ,Łatwy, Średni, Trudny]" />
+		</s:dataProvider>
+	</s:DropDownList>
+	<s:Button label="Rozwiąż"
+			  skinClass="skins.ButtonWithStatesSkin"/>
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	
+   
+    
+    
+	
+
+    
+    
+    
+    
+</s:VGroup>

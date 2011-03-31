@@ -12,7 +12,7 @@
     paddingBottom="5"
     width="100%"
     height="100%"
-	 backgroundColor="#FFFFFF"
+	 backgroundColor="#000000"
 			   >
 			   
 	
@@ -25,6 +25,7 @@
 		
 		]]>
 	</fx:Script>
+	<!--
 	
 	<mx:HBox width="100%" height="100%">
         <mx:VBox width="300" height="100%">
@@ -37,6 +38,68 @@
 			
             <mx:DateChooser id="dateChooser" width="100%"/>
         </mx:VBox>
- 		
-    </mx:HBox>
-</mx:VBox>
+		</mx:HBox>
+
+ 	-->
+		
+		<s:SkinnableContainer width="933" height="81" 
+			contentBackgroundColor="0X0074AA"			  
+			skinClass="skins.TopContainerSkin">
+		
+		<mx:Image source="assets/logo.png"/>
+		
+		<s:Label text="QUIZY"
+				 fontWeight="bold" fontSize="38"
+				 alignmentBaseline="ideographicBottom"/>
+				 
+		</s:SkinnableContainer>
+		
+		<s:HGroup>
+			 <mx:Label text=""/>
+		<s:Label text="{'Zalogowano jako:  '+ user.login + ' (' + user.email + ')'} - Piątek, 11 Luty 2011, 12:30" 
+				 height="22" 
+				 backgroundColor="#686868" 
+				 color="#FFFFFF" 
+				 textAlign="right" 
+				 verticalAlign="middle" 
+				 paddingRight="15" 			
+				 width="851"/>
+		
+		<s:Button label="Logout"  
+				  width="75"/>
+	</s:HGroup>
+			<s:HGroup gap="36">
+		<!--
+		<comp:QuizPanel width="287" height="472" 
+				 title="Twórcy:" 
+				 PanelTitleColor="#88ccff">
+		
+			<comp:Tworcy width="266" height="370" x="-1" y="4"/>
+		</comp:QuizPanel>
+		-->
+		
+			
+			<!--
+		<comp:QuizPanel width="287" height="472" 
+				 title="Wybór Quizów:"
+				 PanelTitleColor="#7755aa">
+			<comp:Quizy width="100%"/>
+		</comp:QuizPanel>		 
+		
+		<comp:QuizPanel width="287" height="472" 
+				 title="Twoje konto:"
+				 PanelTitleColor="#70b2ee">
+			<comp:Konto height="439" width="287"/>
+		</comp:QuizPanel>
+		-->
+		
+	
+				<comp:QuizPanel width="287" height="472" 
+				 title="Kategorie"
+				 PanelTitleColor="#7755aa">
+			<comp:Categories width="100%"/>
+		</comp:QuizPanel>		 
+	
+	</s:HGroup>
+
+    </mx:VBox>

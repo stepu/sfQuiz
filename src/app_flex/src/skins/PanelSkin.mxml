@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+    xmlns:mx="library://ns.adobe.com/flex/mx" 
+    xmlns:s="library://ns.adobe.com/flex/spark"
+	creationComplete="initTitleSkin()">
+    
+    <!-- Properties of the parent ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <s:states>
+        
+        <s:State name="normal" />
+        <s:State name="disabled" />
+        
+    </s:states>
+    
+    <!-- Metadata ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    <fx:Metadata>
+        
+        [HostComponent("components.QuizPanel")]
+        
+    </fx:Metadata>
+    
+    <!-- Styles ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+    
+    
+    <!-- Script ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			private function initTitleSkin():void
+			{
+				headerSkinColor.color = hostComponent.PanelTitleColor;
+			}
+
+
+		]]>
+	</fx:Script>
+    
+    
+    <!-- Declarations ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    
+	<fx:Declarations>
+		
+	</fx:Declarations>
+    
+    <!-- UI components ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->	
+    
+	<s:Rect radiusX="8" radiusY="8"
+        height="100%" width="100%"
+		right="10">
+       	
+        <s:fill>
+			<mx:SolidColor id="panelSkin" color="#E8E8E8"/>
+		</s:fill>
+        
+    </s:Rect>
+	
+	<s:Path winding="nonZero" 
+			rotation="90"
+			right="0" top="0" bottom="0"
+        data="M 0.016 0.012 L 0.016 23.354 L 287.419 23.354 L 287.408 12.012 C 287.408 5.385 282.035 0.012 275.408 0.012 L 0.016 0.012 Z">
+		
+        <s:fill>
+			<s:SolidColor id="headerSkinColor"/>
+		</s:fill>
+        
+	</s:Path>
+	
+	<s:Label id="titleDisplay" 
+		rotation="90"
+        lineBreak="explicit"
+        left="10" right="4" 
+        top="2" height="30"
+        fontWeight="bold"/>
+	
+
+	<s:Group id="contentGroup">
+        
+	</s:Group>        
+	
+</s:SparkSkin>
