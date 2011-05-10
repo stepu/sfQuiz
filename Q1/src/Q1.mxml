@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="1024" minHeight="768" pageTitle="Main Page" backgroundAlpha="0.84" backgroundColor="#000000" preloaderChromeColor="#C9EAFF" width="1502">
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	<fx:Style source="Q1_1.css"/>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:TitleWindow x="255.35" y="109.25" width="924" height="592" skinClass="mainpanel">
+		<s:layout>
+			<s:HorizontalLayout/>
+		</s:layout>
+		<s:Button label="REJESTRACJA" width="129" height="30" chromeColor="#BCBBBB"/>
+		<s:Button label="MOJE KONTO" width="130" height="30"/>
+		<s:Button label="DODAJ QUIZ" height="30" width="129"/>
+		<s:Button label="RANKING" width="103" height="30"/>
+	</s:TitleWindow>
+	<s:Panel x="12.35" y="109.15" width="238" height="294" title="KATEGORIE" skinClass="kategorie">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+	</s:Panel>
+	<s:Panel x="10.45" y="411.05" width="238" height="290" title="OSTATNIO DODANE">
+		<s:layout>
+			<s:BasicLayout/>
+		</s:layout>
+	</s:Panel>
+	<s:Panel x="1186" y="109" width="306" height="282" title="MOJE KONTO">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+	</s:Panel>
+	<s:Panel x="1187.35" y="411.45" width="306" height="290" title="NAJLEPSI GRACZE">
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+	</s:Panel>
+	<mx:SWFLoader x="10" y="10" width="1482" height="91" source="Panel.swf"/>
+</s:Application>
